@@ -26,15 +26,17 @@ public class Processor {
         workOrders.put(Status.IN_PROGRESS, inProgressOrders);
         workOrders.put(Status.DONE, doneOrders);
 
-        Scanner scanner = new Scanner(System.in);
-        String userInput = "";
 
-        while (!userInput.equals("stop")) {
-            userInput = scanner.nextLine();
+        while(true){
             printMap(workOrders);
             moveIt();
             readIt();
             printMap(workOrders);
+            try {
+                Thread.sleep(5000l);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 
